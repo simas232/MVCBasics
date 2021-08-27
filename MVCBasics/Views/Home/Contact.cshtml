@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h1>Contact</h1>
+
+@foreach (KeyValuePair<String, String> contact in ViewData["MyContacts"] as IDictionary<String, String>)
+{
+    <p>@contact.Key: @contact.Value</p>
+}

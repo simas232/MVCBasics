@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h1>Projects</h1>
+
+<ul>
+    @foreach (KeyValuePair<String, String> project in ViewData["MyProjects"] as IDictionary<String, String>)
+    {
+        <li>
+            <p><a href="https://github.com/simas232/@project.Key">@project.Key</a>: @project.Value</p>
+        </li>
+    }
+</ul>
