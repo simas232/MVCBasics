@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "FeverCheck";
+}
+
+<h1>Fever Check</h1>
+
+<form method="POST">
+    <input id="temperature"
+           name="temperatureValue"
+           type="number"
+           step="0.1"
+           placeholder="Temperature" />
+    <input type="radio" id="celsius" name="temperatureScale" value="C" checked="checked">
+    <label for="celsius">°C</label>
+    <input type="radio" id="fahrenheit" name="temperatureScale" value="F">
+    <label for="fahrenheit">°F</label><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<p>@ViewBag.Msg</p>
