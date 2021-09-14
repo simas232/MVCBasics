@@ -16,6 +16,14 @@ namespace MVCBasics
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".GuessingGame.Session";
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddMvc();
         }
 
@@ -31,6 +39,8 @@ namespace MVCBasics
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -41,6 +51,11 @@ namespace MVCBasics
                     name: "FeverCheck",
                     pattern: "FeverCheck",
                     defaults: new { controller = "Doctor", action = "FeverCheck" }
+                );
+                endpoints.MapControllerRoute(
+                    name: "GuessingGame",
+                    pattern: "/GuessingGame",
+                    defaults: new { controller = "Home", action = "GuessingGame" }
                 );
             });
         }

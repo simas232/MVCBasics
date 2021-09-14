@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "GuessingGame";
+}
+
+<h1>Guess The Number between 1 and 100</h1>
+
+<form method="POST">
+    <input id="guessNumber"
+           name="guessNumber"
+           type="number"
+           min="1"
+           max="100"
+           placeholder="Guess A Number" />
+    <input type="submit" value="Submit">
+</form>
+
+<p>@ViewBag.Status</p>
+<p>Number of Guesses: @ViewBag.GuessCounter</p>
+<h2>Top Scores</h2>
+
+<table>
+    <tr>
+        <th>Rank</th>
+        <th>No. of Guesses</th>
+    </tr>
+    <tr>
+        <td>1st</td>
+        <td>@ViewBag.FirstScore</td>
+    </tr>
+    <tr>
+        <td>2nd</td>
+        <td>@ViewBag.SecondScore</td>
+    </tr>
+    <tr>
+        <td>3rd</td>
+        <td>@ViewBag.ThirdScore</td>
+    </tr>
+    <tr>
+        <td>4th</td>
+        <td>@ViewBag.FourthScore</td>
+    </tr>
+    <tr>
+        <td>5th</td>
+        <td>@ViewBag.FifthScore</td>
+    </tr>
+</table>
